@@ -16,14 +16,12 @@
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
     }
-
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
     }
-
     header .back-button {
       font-size: 20px;
       padding: 10px 25px;
@@ -36,29 +34,24 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
     }
-
     header .back-button:hover {
       background: linear-gradient(45deg, #ef5576, #0d3c6d);
       transform: scale(1.05);
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-
     header .logo {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-
     header .logo img {
       height: 50px;
       width: auto;
     }
-
     header .logo h1 {
       font-size: 24px;
       color: #0e4d4d;
     }
-
     .content {
       flex: 1;
       display: flex;
@@ -66,7 +59,6 @@
       align-items: center;
       padding: 40px;
     }
-
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -75,7 +67,6 @@
       width: 100%;
       max-width: 1200px;
     }
-
     .card {
       background-color: #e8f3ee;
       border-radius: 30px;
@@ -90,18 +81,15 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .card:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 12px 25px rgba(0,0,0,0.25);
     }
-
     .card h2 {
       color: #0e4d4d;
       margin-bottom: 20px;
       font-size: 20px;
     }
-
     .card button {
       padding: 12px 25px;
       font-size: 16px;
@@ -115,84 +103,98 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       margin-top: 10px;
     }
-
     .card button:hover {
       background: linear-gradient(45deg, #ef5576, #0d3c6d);
       transform: scale(1.05);
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-
     footer {
       text-align: center;
       padding: 20px;
       background-color: #ffffff;
       box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
     }
-
     footer p {
       margin: 5px 0;
       color: #333;
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <button class="back-button" onclick="goBack()">&#8592;</button>
-    <div class="logo">
-      <img src="../assets/logo.png" alt="Logo">
-      <h1>Payment & Refund</h1>
-    </div>
-  </header>
-
-  <div class="background"></div>
-
-  <div class="content">
-    <div class="card-grid" id="cardGrid"></div>
+<header>
+  <button class="back-button" onclick="goBack()">&#8592;</button>
+  <div class="logo">
+    <img src="../assets/logo.png" alt="Logo">
+    <h1>Payment & Refund</h1>
   </div>
+</header>
 
-  <footer>
-    <p>Designed Mohammed ma'mon</p>
-  </footer>
+<div class="background"></div>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      document.body.style.opacity = 1;
-    });
+<div class="content">
+  <div class="card-grid" id="cardGrid"></div>
+</div>
 
-    function goBack() {
-      document.body.style.opacity = 0;
-      setTimeout(() => {
-        window.location.href = "../home.html";
-      }, 500);
+<footer>
+  <p>Designed Mohammed ma'mon</p>
+</footer>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.body.style.opacity = 1;
+  });
+
+  function goBack() {
+    document.body.style.opacity = 0;
+    setTimeout(() => {
+      window.location.href = "../home.html";
+    }, 500);
+  }
+
+  const cardGrid = document.getElementById('cardGrid');
+
+  const cardsData = [
+    {
+      title: "Pay Fort",
+      buttons: [{ name: "Open", link: "https://fort.payfort.com/account-login" }]
+    },
+    {
+      title: "Tamara",
+      buttons: [{ name: "Open", link: "https://partners.tamara.co/" }]
+    },
+    {
+      title: "Master Refund",
+      buttons: [{ name: "Open", link: "https://docs.google.com/spreadsheets/d/1IpFSVBDQZPf44Tbizgwxs0ojLZ1jKYIL_nZB1sHqB4A/edit?usp=sharing" }]
+    },
+    {
+      title: "Bank Statement",
+      buttons: [{
+        name: "Open",
+        link: "https://nahdi-my.sharepoint.com/:x:/g/personal/algabri_ty_nahdi_sa/EZcFqmSrACFNgolrqO_2K6IBt22b56sLL-XCEiWIb-LNRw?email=alhamed.sa%40nahdi.sa&e=a5GoEp"
+      }]
     }
+  ];
 
-    const cardGrid = document.getElementById('cardGrid');
+  cardsData.forEach(card => {
+    const cardEl = document.createElement('div');
+    cardEl.className = 'card';
 
-    const cardsData = [
-      { title: "Pay Fort", buttons: [{ name: "Open", link: "https://fort.payfort.com/account-login" }] },
-      { title: "Tamara", buttons: [{ name: "Open", link: "https://partners.tamara.co/" }] },
-      { title: "Master Refund", buttons: [{ name: "Open", link: "https://docs.google.com/spreadsheets/d/1IpFSVBDQZPf44Tbizgwxs0ojLZ1jKYIL_nZB1sHqB4A/edit?usp=sharing" }] }
-    ];
+    const titleEl = document.createElement('h2');
+    titleEl.textContent = card.title;
+    cardEl.appendChild(titleEl);
 
-    cardsData.forEach(card => {
-      const cardEl = document.createElement('div');
-      cardEl.className = 'card';
-
-      const titleEl = document.createElement('h2');
-      titleEl.textContent = card.title;
-      cardEl.appendChild(titleEl);
-
-      card.buttons.forEach(btn => {
-        const btnEl = document.createElement('button');
-        btnEl.textContent = btn.name;
-        btnEl.addEventListener('click', () => window.open(btn.link, '_blank'));
-        cardEl.appendChild(btnEl);
-      });
-
-      cardGrid.appendChild(cardEl);
+    card.buttons.forEach(btn => {
+      const btnEl = document.createElement('button');
+      btnEl.textContent = btn.name;
+      btnEl.addEventListener('click', () => window.open(btn.link, '_blank'));
+      cardEl.appendChild(btnEl);
     });
-  </script>
+
+    cardGrid.appendChild(cardEl);
+  });
+</script>
 
 </body>
 </html>
