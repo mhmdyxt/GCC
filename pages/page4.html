@@ -17,7 +17,6 @@
       transition: opacity 0.5s ease-in-out;
     }
 
-    /* Header layout */
     header {
       display: flex;
       justify-content: space-between;
@@ -29,11 +28,11 @@
       font-size: 20px;
       padding: 10px 25px;
       border: none;
-      border-radius: 20px; 
+      border-radius: 20px;
       cursor: pointer;
       color: white;
       font-weight: bold;
-      background: linear-gradient(45deg, #d32769, #2184b9); 
+      background: linear-gradient(45deg, #d32769, #2184b9);
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
     }
@@ -68,10 +67,10 @@
       padding: 40px;
     }
 
-    /* Responsive card grid */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
       gap: 30px;
       justify-items: center;
       width: 100%;
@@ -91,6 +90,7 @@
       min-height: 180px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
 
     .card:hover {
@@ -116,6 +116,9 @@
       transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .card button:hover {
@@ -123,6 +126,59 @@
       transform: scale(1.05);
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
+
+    .info-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg, #d32769, #2184b9);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+      font-size: 16px;
+      font-weight: bold;
+      margin-left: 10px;
+      position: relative;
+    }
+
+    .info-icon:hover {
+      background: linear-gradient(45deg, #ef5576, #0d3c6d);
+      transform: scale(1.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+   .popup-card {
+  position: absolute;
+  background-color: #ffffff;
+  padding: 14px 16px;              /* مسافة أفضل */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  display: none;
+  z-index: 2000;
+  width: 300px;
+  max-height: 220px;               /* ⭐ الحل الأساسي */
+  overflow-y: auto;                /* ⭐ Scroll احترافي */
+  text-align: left;
+  font-weight: 600;
+  color: #0e4d4d;
+  font-size: 13px;                 /* أوضح شوية */
+  line-height: 1.7;                /* راحة للعين */
+}
+
+/* تحسين شكل كل حساب */
+.popup-card > div {
+  padding: 8px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.popup-card > div:last-child {
+  border-bottom: none;
+}
+
 
     footer {
       text-align: center;
@@ -135,6 +191,51 @@
       margin: 5px 0;
       color: #333;
     }
+
+    .button-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+     .outbound-icon-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.outbound-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #d32769, #2184b9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.outbound-icon:hover {
+  background: linear-gradient(45deg, #ef5576, #0d3c6d);
+  transform: scale(1.2);
+}
+
+.outbound-label {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #0e4d4d;
+  font-weight: bold;
+  text-align: center;
+}
   </style>
 </head>
 <body>
@@ -143,7 +244,7 @@
     <button class="back-button" onclick="goBack()">&#8592;</button>
     <div class="logo">
       <img src="../assets/logo.png" alt="Logo">
-      <h1>Order Cansellation</h1>
+      <h1>Payment & Refund</h1>
     </div>
   </header>
 
@@ -157,44 +258,117 @@
     <p>Designed Mohammed ma'mon</p>
   </footer>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      document.body.style.opacity = 1;
-    });
+    <div class="outbound-icon-wrapper" onclick="window.open('Outbound mail.html', '_blank')">
+  <div class="outbound-icon">✉️</div>
+  <span class="outbound-label">Outbound Email</span>
+</div>
 
-    function goBack() {
-      document.body.style.opacity = 0;
-      setTimeout(() => {
-        window.location.href = "../home.html"; 
-      }, 500);
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.body.style.opacity = 1;
+  });
+
+  function goBack() {
+    document.body.style.opacity = 0;
+    setTimeout(() => {
+      window.location.href = "../home.html";
+    }, 500);
+  }
+
+  const cardGrid = document.getElementById('cardGrid');
+
+  const cardsData = [
+    { 
+      title: "Pay Fort", 
+      buttons: [{ name: "Open", link: "https://fort.payfort.com/account-login" }],
+      credentials: [
+        { username: "dina.badawy@teleperformance.com", password: "Welcome@3030" },
+        { username: "salma.abdeldayem@eg.teleperformance.com", password: "Welcome@2026" },
+        { username: "Shorouk.abdelhamid@teleperformance.com", password: "Welcome@5050" },
+        { username: "alaa.attia@eg.teleperformance.com", password: "Nahdi@123456" },
+        { username: "ahmed.saleh.136@teleperformance.com", password: "Seadaaa@9090" }
+      ]
+    },
+    { 
+      title: "Tamara", 
+      buttons: [{ name: "Open", link: "https://partners.tamara.co/" }],
+      credentials: [{ username: "bupagcc555@gmail.com", password: "TPplaza@7000" }] 
+    },
+    { 
+      title: "Master Refund", 
+      buttons: [{ name: "Open", link: "https://docs.google.com/spreadsheets/d/1IpFSVBDQZPf44Tbizgwxs0ojLZ1jKYIL_nZB1sHqB4A/edit?usp=sharing" }] 
+    },
+    { 
+      title: "Bank Statement", 
+      buttons: [{ name: "Open", link: "#" }] 
     }
+  ];
 
-    const cardGrid = document.getElementById('cardGrid');
+  function createButtonWithIcon(btnData, credentials) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'button-wrapper';
 
-    const cardsData = [
-      { title: "Log Fire", buttons: [{ name: "Open", link: "https://b6.wms.ocs.oraclecloud.com/nahdi/index/" }] },
-      { title: "Web Tracker", buttons: [{ name: "Open", link: "https://rtlapps.nahdi.sa/WebOTS/" }] },
-      { title: "Far Eye", buttons: [{ name: "Open", link: "https://www.fareye.co/v2/login" }] }
-    ];
+    const btnEl = document.createElement('button');
+    btnEl.textContent = btnData.name;
+    btnEl.addEventListener('click', () => window.open(btnData.link, '_blank'));
+    wrapper.appendChild(btnEl);
 
-    cardsData.forEach(card => {
-      const cardEl = document.createElement('div');
-      cardEl.className = 'card';
+    /* ✅ الإصلاح هنا */
+    if (credentials && credentials.length > 0) {
+      const icon = document.createElement('span');
+      icon.className = 'info-icon';
+      icon.innerHTML = '👤🔒';
 
-      const titleEl = document.createElement('h2');
-      titleEl.textContent = card.title;
-      cardEl.appendChild(titleEl);
+      const popup = document.createElement('div');
+      popup.className = 'popup-card';
+      popup.innerHTML = credentials.map(c => `
+        <div>Username:<br>${c.username}</div>
+        <div style="margin-top:6px;">Password:<br>${c.password}</div>
+      `).join('');
 
-      card.buttons.forEach(btn => {
-        const btnEl = document.createElement('button');
-        btnEl.textContent = btn.name;
-        btnEl.addEventListener('click', () => window.open(btn.link, '_blank'));
-        cardEl.appendChild(btnEl);
+      wrapper.appendChild(popup);
+      wrapper.appendChild(icon);
+
+      icon.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        document.querySelectorAll('.popup-card').forEach(p => {
+          if (p !== popup) p.style.display = 'none';
+        });
+
+        popup.style.display =
+          popup.style.display === 'block' ? 'none' : 'block';
+
+        popup.style.left = icon.offsetLeft - 10 + 'px';
+        popup.style.top =
+          icon.offsetTop - popup.offsetHeight - 12 + 'px';
       });
 
-      cardGrid.appendChild(cardEl);
-    });
-  </script>
+      document.addEventListener('click', (e) => {
+        if (!popup.contains(e.target) && e.target !== icon) {
+          popup.style.display = 'none';
+        }
+      });
+    }
 
+    return wrapper;
+  }
+
+  cardsData.forEach(card => {
+    const cardEl = document.createElement('div');
+    cardEl.className = 'card';
+
+    const titleEl = document.createElement('h2');
+    titleEl.textContent = card.title;
+    cardEl.appendChild(titleEl);
+
+    card.buttons.forEach(btn => {
+      const btnWrapper = createButtonWithIcon(btn, card.credentials);
+      cardEl.appendChild(btnWrapper);
+    });
+
+    cardGrid.appendChild(cardEl);
+  });
+</script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GCC Tools - Branches</title>
+  <title>GCC Tools - Page 8</title>
   <link rel="stylesheet" href="../style.css">
   <style>
     body {
@@ -13,7 +13,6 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      background-color: #f5f9f7;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
     }
@@ -70,11 +69,11 @@
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(300px, 1fr));
       gap: 30px;
       justify-items: center;
       width: 100%;
-      max-width: 1200px;
+      max-width: 800px;
     }
 
     .card {
@@ -87,7 +86,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 180px;
+      min-height: 150px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -142,9 +141,10 @@
     <button class="back-button" onclick="goBack()">&#8592;</button>
     <div class="logo">
       <img src="../assets/logo.png" alt="Logo">
-      <h1>Branches</h1>
+      <h1>Information</h1>
     </div>
   </header>
+
   <div class="background"></div>
 
   <div class="content">
@@ -170,10 +170,10 @@
     const cardGrid = document.getElementById('cardGrid');
 
     const cardsData = [
-      { title: "Branch Finder", buttons: [{ name: "Open", link: "https://docs.google.com/spreadsheets/d/1Iy1jh5Jn5GxzVA01znXCTwvTDpMNCLtgArw3CcYAwg4/edit?gid=649908881#gid=649908881" }] },
-      { title: "Branch Info", buttons: [{ name: "Open", link: "https://docs.google.com/spreadsheets/d/1Y6Hd9C5ivUDu1KuanICjL2QfcmuhQLGWIIfWKAZplAE/edit?gid=900124846#gid=900124846" }] },
-      { title: "FreeStyle Branches", buttons: [{ name: "Open", link: "https://docs.google.com/spreadsheets/d/1Y6Hd9C5ivUDu1KuanICjL2QfcmuhQLGWIIfWKAZplAE/edit?gid=617466613#gid=617466613" }] },
-      { title: "InBody Branches", buttons: [{ name: "Open", link: "https://docs.google.com/spreadsheets/d/1Y6Hd9C5ivUDu1KuanICjL2QfcmuhQLGWIIfWKAZplAE/edit?gid=584742266#gid=584742266" }] }
+      { title: "Updated Data", buttons: [{ name: "Open", link: "https://docs.google.com/spreadsheets/d/164zPmWPSETz8YxmIBlvfQ0WuGUKeiIIFIA0mCHVzHdc/edit?gid=836317476" }] },
+      { title: "SharePoint", buttons: [{ name: "Open", link: "https://teleperformance.sharepoint.com/sites/Al-NahdiSharePoint594/Shared Documents/Forms/AllItems.aspx" }] },
+      { title: "Knowledge Base", buttons: [{ name: "Open", link: "https://egportal01.emea.tpg.ads/AlNahdi/dashboard" }] },
+      { title: "Academy", buttons: [{ name: "Open", link: "https://nahdiacademy.nahdi.sa/user_dashboard" }] }
     ];
 
     cardsData.forEach(card => {

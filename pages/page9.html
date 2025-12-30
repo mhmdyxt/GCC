@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GCC Tools - Communication</title>
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f5f9f7;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      position: relative;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+
+    header .back-button {
+      font-size: 20px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      background: linear-gradient(45deg, #d32769, #2184b9);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo img {
+      height: 50px;
+    }
+
+    header .logo h1 {
+      font-size: 24px;
+      color: #0e4d4d;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* كارد واحدة في المنتصف */
+    .card-grid {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .card {
+      background-color: #e8f3ee;
+      border-radius: 30px;
+      padding: 40px 30px;
+      text-align: center;
+      width: 100%;
+      max-width: 350px;
+      min-height: 250px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    .card h2 {
+      color: #0e4d4d;
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .card button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      background: linear-gradient(45deg, #d32769, #2184b9);
+      color: white;
+      font-weight: bold;
+      width: 240px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* أيقونة TB Mail Templates */
+    .tb-mail-icon {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #d32769, #2184b9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      z-index: 1000;
+    }
+
+    .tb-mail-icon:hover {
+      transform: scale(1.15);
+    }
+
+    .tb-mail-icon span {
+      position: absolute;
+      bottom: -22px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #0e4d4d;
+      white-space: nowrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <button class="back-button" onclick="goBack()">&#8592;</button>
+  <div class="logo">
+    <img src="../assets/logo.png" alt="Logo">
+    <h1>Communication</h1>
+  </div>
+</header>
+
+<div class="background"></div>
+
+<div class="content">
+  <div class="card-grid">
+    <div class="card">
+      <h2>Mail</h2>
+      <button onclick="window.open('https://webmail.emea.teleperformance.com/roundcube/?_task=mail&_mbox=INBOX', '_blank')">Open</button>
+    </div>
+  </div>
+</div>
+
+<!-- أيقونة TB Mail Templates -->
+<div class="tb-mail-icon" onclick="window.open('Tp mail.html', '_blank')">
+  ✉️
+  <span>TB Mail Templates</span>
+</div>
+
+<footer>
+  <p>Designed By Mohammed ma'mon</p>
+</footer>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.body.style.opacity = 1;
+  });
+
+  function goBack() {
+    document.body.style.opacity = 0;
+    setTimeout(() => {
+      window.location.href = "../home.html";
+    }, 500);
+  }
+</script>
+
+</body>
+</html>

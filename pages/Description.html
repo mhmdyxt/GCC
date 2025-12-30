@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard خدمة العملاء الشامل</title>
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f9f7;
+      color: #0e4d4d;
+    }
+
+    .dashboard-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding: 20px;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0 10px;
+      width: 100%;
+      min-width: 600px;
+      border: 2px solid #2184b9; /* حدود خارجية للجدول */
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      background-color: #fff;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      vertical-align: top;
+      text-align: center;
+      word-wrap: break-word;
+      border: 1px solid #2184b9; /* حدود داخلية للخلايا */
+      border-radius: 8px;
+    }
+
+    .side-header {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-weight: bold;
+      font-size: 22px;
+      text-align: center;
+      padding: 5px;
+      border: 2px solid #2184b9; /* حدود للعناوين الجانبية */
+    }
+
+    .top-banner {
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      color: white;
+      padding: 10px 0;
+    }
+
+    /* الألوان */
+    .ec-section { background-color: #e8f3ee; }
+    .ec-head { background: linear-gradient(45deg, #d32769, #2184b9); }
+    
+    .omni-section { background-color: #e6f0e6; }
+    .omni-head { background: linear-gradient(45deg, #2184b9, #d32769); color: white; }
+    
+    .loyalty-section { background-color: #e3f2fd; }
+    .loyalty-head { background: linear-gradient(45deg, #512da8, #5c6bc0); color: white; }
+
+    .refund-section { background-color: #fff; }
+    .refund-head { background: linear-gradient(45deg, #00bcd4, #2184b9); color: white; }
+    .refund-box { background: linear-gradient(45deg, #ad1457, #d32769); color: white; font-weight: bold; }
+
+    .sub-title { font-weight: bold; color: #d35400; text-align: center; font-size: 13px; }
+    .wa-icon { width: 40px; display: block; margin: 5px auto; }
+
+    .full-row-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #43a047;
+      text-align: center;
+      padding: 8px 0;
+    }
+
+    td img { max-width: 40px; }
+
+    @media (max-width: 768px) {
+      .side-header {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 18px;
+        padding: 5px;
+      }
+
+      table { font-size: 12px; }
+    }
+      /* ===== زر الرجوع لصفحة 1 ===== */
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px; 
+  font-size: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(45deg, #d32769, #2184b9);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  z-index: 9999;
+}
+
+.back-button:hover {
+  background: linear-gradient(45deg, #ef5576, #0d3c6d);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+  </style>
+</head>
+<script>
+  function goToPage2() {
+    window.location.href = "page2.html"; 
+  }
+</script>
+<body>
+    <button class="back-button" onclick="goToPage2()">
+  ← 
+</button> <div class="dashboard-container"><button class="back-button" onclick="goToPage2()">
+  ← 
+</button>
+     <table class="ec-section"> <tr class="top-banner ec-head"><th colspan="4">E-Commerce</th></tr> <tr> <td rowspan="5" class="side-header" style="color: #ff4d4d;">HD Order</td> <td>Delayed Order<br>تأخير الطلب</td> <td>Delayed after time slot<br>تأخر بعد وقت التوصيل</td> <td>رقم الجوال:<br>رقم الطلب:<br>وقت التوصيل:<br>تأخر توصيل الطلب للضيف</td> </tr> <tr> <td colspan="2" style="text-align: center;"> <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon" alt="WA"> </td> <td>* طلب توصيل HD - طلب متأخر *<br>** اسم الصيدلية **<br>** كود الصيدلية **<br>** اسم الضيف **<br>** رقم الطلب **<br>** وقت التواصل **<br>** تواصل من نفس الرقم **<br>** تاريخ التوصيل **<br>" الطلب متأخر برجاء دعمكم العاجل "</td> </tr> <tr> <td>edit order<br>تعديل الطلب</td> <td></td> <td>رقم الجوال:<br>رقم الطلب:<br>وقت التوصيل:<br>تعديل رقم جوال الضيف للتواصل على الرقم التالي</td> </tr> <tr> <td>Order Cancellation<br>إلغاء الطلب</td> <td></td> <td>رقم الجوال:<br>رقم الطلب:<br>طلب الضيف الغاء الطلب</td> </tr> <tr> <td>Delivery inquiry<br>استعلام عن التوصيل (رسوم الشحن - خيارات الدفع)</td> <td></td> <td>رقم الجوال:<br>رقم الطلب:<br>استفسار الضيف عن طريقة الدفع او رسوم الشحن</td> </tr> <tr> <td rowspan="2" class="side-header" style="color: #f39c12; font-size: 22px;">SP Order</td> <td>Status inquiry<br>استفسار عن حالة الطلب</td> <td></td> <td>رقم الجوال:<br>رقم الطلب:<br>استفسار الضيف عن حالة الطلب</td> </tr> <tr> <td>Order cancel<br>الغاء الطلب</td> <td></td> <td>رقم الجوال:<br>رقم الطلب:<br>الغاء الطلب</td> </tr> <tr><td colspan="3" class="full-row-title">Captain behavior</td><td>رقم الجوال:<br>رقم الطلب:<br>اسم الكابتن:<br>الضيف يشتكي من سلوك الكابتن</td></tr> <tr><td colspan="3" class="full-row-title">Delivery car ( Unsafe driving )</td><td>رقم اللوحة:<br>الحروف / اللوحة:<br>الوقت والتاريخ:<br>تهور في القيادة</td></tr> <tr> <td rowspan="3" class="side-header" style="color: #2e7d32;">Items issue</td> <td colspan="2" style="text-align: center; font-weight: bold; font-size: 18px;">Wrong item<br>صنف خاطئ</td> <td>رقم الجوال:<br>رقم الطلب:<br>رقم الصنف الصحيح:<br>اسم الصنف الصحيح:<br>تم توصيل صنف خاطئ للضيف</td> </tr> <tr> <td colspan="2" style="text-align: center; font-weight: bold; font-size: 18px;">Missed item<br>صنف ناقص</td> <td>رقم الجوال:<br>رقم الطلب:<br>رقم الصنف الناقص:<br>اسم الصنف الناقص:<br>تم توصيل الطلب وصنف ناقص لم يصل للضيف</td> </tr> <tr> <td colspan="2" style="text-align: center; font-weight: bold; font-size: 18px;">Damaged item<br>صنف تالف</td> <td>رقم الجوال:<br>رقم الطلب:<br>اسم الصنف التالف:<br>تم توصيل الطلب وصنف تالف داخل الطلب</td> </tr> </table> <table class="omni-section"> <tr class="top-banner omni-head"><th colspan="5">Omnichannel</th></tr> <tr> <td rowspan="11" class="side-header" style="color: #e67e22;">Technical</td> <td rowspan="3" class="sub-title">Login issue<br>تسجيل دخول</td> <td>No ticket</td> <td>Login issue in progress ticket</td> <td>رقم الجوال:<br>الايميل:<br>رقم التذكرة:<br>تم الاعتذار للضيف لعدم حل التذكرة ويتم ارسال المشكلة للقسم المختص</td> </tr> <tr> <td>No ticket (Complain)</td> <td>Resolved log in issue</td> <td>رقم الجوال:<br>الايميل:<br>المشكلة تحت عبر الويب او التطبيق ؟<br>نوع الجهاز Android او iOS ؟<br>تم مساعدة الضيف وحل المشكلة وتسجيل الدخول بنجاح</td> </tr> <tr> <td>Ticket with screen shots</td> <td>Ticket - Log in issue</td> <td>رقم الجوال:<br>رقم التذكرة:<br>الايميل:<br>هل تم استعادة كلمة المرور؟ (نعم/لا)<br>هل عمل حساب جديد؟ (نعم/لا)<br>الرسالة التي تظهر عند تسجيل الدخول:<br>الضيف لديه مشكلة في تسجيل الدخول للتطبيق</td> </tr> <tr> <td rowspan="2" class="sub-title">Payment issue<br>مشاكل الدفع</td> <td>Ticket (Screenshot is a must)</td> <td>Payment options issues</td> <td>رقم الجوال:<br>نوع الدفع:<br>رسالة الخطأ:<br>الضيف يواجه مشكلة في عدم ظهور خيارات الدفع لاكمال الطلب</td> </tr> <tr> <td>Ticket (Screenshot is a must)</td> <td>Payment page delay</td> <td>رقم الجوال:<br>نوع الدفع:<br>رسالة الخطأ:<br>الضيف مستاء من التأخير في صفحة الدفع وعدم اكتمال الطلب</td> </tr> <tr> <td class="sub-title" style="font-size: 10px;">Inaccurate order value<br>قيمة الطلب غير صحيحة</td> <td>No ticket (complain)</td> <td>Inaccurate order value</td> <td>رقم الجوال:<br>رقم الطلب:<br>رقم الفاتورة:<br>قيمة الطلب الصحيحة:<br>قيمة الطلب المرفق غير صحيحة</td> </tr> <tr> <td style="text-align: center; font-weight: bold;">Store Info update</td> <td>NO ticket</td> <td>Store info update</td> <td>كود الصيدلية:<br>المعلومة غير صحيحة:<br>برجاء تحديث معلومات الصيدلية</td> </tr> <tr> <td class="sub-title" style="font-size: 10px;">Incomplete order-NOT paid<br>طلب غير مكتمل</td> <td>NO ticket (Complain)</td> <td>Incomplete order - Not paid</td> <td>رقم الجوال:<br>رقم الطلب:<br>تم الاعتذار للضيف لعدم اكتمال الطلب</td> </tr> <tr> <td class="sub-title" style="font-size: 10px;">Incomplete order paid<br>طلب غير مكتمل</td> <td>NO ticket (Complain)</td> <td>Incomplete order - Paid</td> <td>اسم الضيف:<br>رقم الجوال:<br>رقم الطلب:<br>إجمالي المبلغ:<br>تاريخ السحب:<br>وقت السحب:<br>طريقة الدفع:<br>تم الاعتذار للضيف لعدم اكتمال الطلب وإرسال الطلب للفريق المالي</td> </tr> <tr> <td rowspan="2" class="sub-title">Discount codes issue<br>مشكلة كود الخصم</td> <td>No ticket</td> <td>Discount codes issue</td> <td>كود الخصم:<br>الضيف مستاء من عدم تفعيل كود الخصم مع توضيح شروط الخصم للضيف</td> </tr> <tr> <td>Ticket</td> <td>Ticket - Discount codes issue</td> <td>كود الخصم:<br>الرسالة التي تظهر عند استخدام الكود :<br>برجاء مراجعة كود الخصم الغير فعال</td> </tr> <tr> <td rowspan="2" class="side-header" style="color: #d35400; font-size: 20px;">Content</td> <td class="sub-title">Item description<br>وصف المنتج</td> <td>Ticket</td> <td>Item description</td> <td>كود المنتج:<br>اسم المنتج:<br>وصف المنتج غير مطابق لصورة المنتج برجاء مراجعة المنتج والتاكد</td> </tr> <tr> <td class="sub-category">Item image<br>صورة المنتج</td> <td>Ticket with screen shot</td> <td>Item image</td> <td>كود المنتج:<br>اسم المنتج:<br>صورة المنتج لا تتطابق مع الوصف برجاء التحقق واصلاح المشكلة</td> </tr> <tr> <td class="sub-title" style="font-size: 9px; writing-mode: horizontal-tb; transform: none; width: auto; color: #d35400;">Online Promo Issue</td> <td class="sub-title">Online Promo issue<br>عروض غير مفعلة</td> <td>Ticket with screenshot</td> <td>Online Promo issue</td> <td>كود المنتج:<br>اسم المنتج:<br>العرض:<br>العرض المرفق غير مفعل او قيمة العرض غير صحيحة</td> </tr> </table> <table class="loyalty-section"> <tr class="top-banner loyalty-head"><th colspan="3">Loyalty</th></tr> <tr> <td class="sub-title" style="color: #5c6bc0;">Balance Inquiry<br>الاستفسار عن الرصيد</td> <td style="text-align: center; font-weight: bold;">Points redemption<br>استرداد نقاط</td> <td>رقم الجوال:<br>نهديك:<br>الايميل:<br>تم خصم نقاط من الضيف بقيمة ريال ولم يتم إستردادها</td> </tr> <tr> <td class="sub-title" style="color: #5c6bc0;">Negative balance<br>رصيد سلبي</td> <td></td> <td>رقم الجوال:<br>نهديك:<br>الايميل:<br>الضيف يستفسر عن النقاط بأنها بالسالب</td> </tr> <tr> <td rowspan="4" class="side-header" style="color: #5c6bc0; font-size: 22px;">Membership update<br>تحديث العضوية</td> <td style="text-align: center; font-weight: bold;">New enrollment<br>تسجيل جديد</td> <td>رقم الجوال:<br>نهديك:<br>الايميل:<br>تم تسجيل حساب جديد للضيف ولم يقبل</td> </tr> <tr> <td style="text-align: center; font-weight: bold;">Membership activation<br>تفعيل عضوية</td> <td>رقم الجوال:<br>نهديك:<br>الايميل:<br>برجاء تفعيل العضوية المرفقة</td> </tr> <tr> <td style="text-align: center; font-weight: bold;">member cancellation<br>إلغاء عضوية</td> <td>رقم الجوال:<br>نهديك:<br>الايميل:<br>برجاء إلغاء العضوية المرفقة</td> </tr> <tr> <td style="text-align: center; font-weight: bold;">Change Mobile number<br>تغير رقم الجوال</td> <td>رقم الجوال الجديد:<br>نهديك:<br>رقم الجوال القديم:<br>الايميل:<br>تم التحقق من صحة معلومات الضيف برجاء تغيير رقم الجوال القديم الى الجديد</td> </tr> <tr> <td class="sub-title" style="color: #5c6bc0;">Retro claim<br>إضافة فاتورة</td> <td></td> <td>رقم الجوال:<br>نهديك:<br>رقم الفاتورة:<br>الفاتورة المرفقة لم يتم إضافتها برجاء إضافتها</td> </tr> <tr> <td class="sub-title" style="color: #5c6bc0;">Transaction Number<br>رقم الفاتورة</td> <td></td> <td>رقم الجوال:<br>نهديك:<br>رقم الفاتورة:<br>فاتورة غير مسجلة في حساب الضيف</td> </tr> <tr> <td class="sub-title" style="color: #5c6bc0;">Coupon Inquiry<br>الاستفسار عن القسيمة</td> <td></td> <td>رقم الجوال:<br>نهديك:<br>رمز القسيمة أو الكوبون:<br>القسيمة المرفقة لا تعمل لدى الضيف</td> </tr> <tr> <td class="sub-title" style="color: #5c6bc0;">Partnership points issues<br>مشاكل نقاط الشركاء</td> <td></td> <td>رقم الجوال:<br>نهديك:<br>قيمة الخصم:<br>الشريك: قطاف / الراجحي<br>الوقت والتاريخ:<br>الفاتورة:<br>عملية خصم النقاط لم تكتمل للضيف</td> </tr> </table> <table class="refund-section"> <tr class="top-banner refund-head"><th colspan="2">Refund</th></tr> <tr class="refund-box"> <td style="font-weight: bold; width: 100px;">Refund Request</td> <td>Guest Number :-<br>Order Number :-<br>Order status :-<br>Refund reason :-<br>Order creation date :-<br>Payment type :-<br>Amount :-</td> </tr> <tr class="refund-box"> <td style="font-weight: bold;">Failed Refund Request<br>(failed on payfort and master file)</td> <td>Guest Number :-<br>Order Number :-</td> </tr> <tr style="height: 500px;"><td colspan="2"></td></tr> </table> </div> </body>
+</html>

@@ -16,9 +16,9 @@
       background-color: #f5f9f7;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
+      position: relative;
     }
 
-    /* Header layout */
     header {
       display: flex;
       justify-content: space-between;
@@ -72,7 +72,7 @@
     .card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, auto);
+      grid-template-rows: repeat(auto, auto);
       gap: 30px;
       width: 100%;
       max-width: 1600px;
@@ -94,6 +94,7 @@
       min-height: 350px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
 
     .card:hover {
@@ -107,6 +108,15 @@
       margin-bottom: 20px;
     }
 
+    .button-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      justify-content: center;
+      position: relative;
+    }
+
     .card button {
       padding: 12px 25px;
       font-size: 16px;
@@ -118,8 +128,10 @@
       font-weight: bold;
       transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      width: 100%;
-      max-width: 240px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 240px;
     }
 
     .card button:hover {
@@ -128,17 +140,110 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
+    .info-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg, #d32769, #2184b9);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .info-icon:hover {
+      background: linear-gradient(45deg, #ef5576, #0d3c6d);
+      transform: scale(1.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+.popup-card {
+  position: absolute;
+  background-color: #ffffff;
+  padding: 14px 16px;              /* مسافة أفضل */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  display: none;
+  z-index: 2000;
+  width: 300px;
+  max-height: 220px;               /* ⭐ الحل الأساسي */
+  overflow-y: auto;                /* ⭐ Scroll احترافي */
+  text-align: left;
+  font-weight: 600;
+  color: #0e4d4d;
+  font-size: 13px;                 /* أوضح شوية */
+  line-height: 1.7;                /* راحة للعين */
+}
+
+/* تحسين شكل كل حساب */
+.popup-card > div {
+  padding: 8px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.popup-card > div:last-child {
+  border-bottom: none;
+}
+
+
     footer {
       text-align: center;
       padding: 20px;
       background-color: #ffffff;
       box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+      position: relative;
     }
 
     footer p {
       margin: 5px 0;
       color: #333;
     }
+
+    /* أيقونة Outbound Email أسفل على اليمين */
+   .outbound-icon-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.outbound-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #d32769, #2184b9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.outbound-icon:hover {
+  background: linear-gradient(45deg, #ef5576, #0d3c6d);
+  transform: scale(1.2);
+}
+
+.outbound-label {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #0e4d4d;
+  font-weight: bold;
+  text-align: center;
+}
+
+
   </style>
 </head>
 <body>
@@ -161,6 +266,13 @@
     <p>Designed Mohammed ma'mon</p>
   </footer>
 
+  <!-- أيقونة Outbound Email -->
+  <div class="outbound-icon-wrapper" onclick="window.open('Outbound mail.html', '_blank')">
+  <div class="outbound-icon">✉️</div>
+  <span class="outbound-label">Outbound Email</span>
+</div>
+
+
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       document.body.style.opacity = 1;
@@ -180,27 +292,33 @@
         title: "Application",
         buttons: [
           { name: "Normal", link: "https://www.nahdionline.com/en-sa" },
-          { name: "Guest(Telesales)", link: "http://s2h.nahdionline.com/" }
+          { name: "Follow-Up Offers", link: "https://www.nahdionline.com/en-sa/clp/promo-flyer" },
+          { name: "Guest(Telesales)", link: "http://s2h.nahdionline.com/" },
+          { name: "YXT - Advanced Search", link: "https://docs.google.com/spreadsheets/d/1Y6Hd9C5ivUDu1KuanICjL2QfcmuhQLGWIIfWKAZplAE/edit?gid=2056182567#gid=2056182567" },
         ]
       },
       {
         title: "Insurance",
         buttons: [
-          { name: "ERX", link: "https://rtlapps.nahdi.sa/erxhub_new/" },
-          { name: "ERX-Hub", link: "https://docs.google.com/spreadsheets/d/1OyKkgS0Gmki7bYrnG4QOeklzK1mbeK0xJIq2koFV6pE/edit?gid=0&range=A1" },
-          { name: "Nphies", link: "https://rtlapps.nahdi.sa/nphies_portal/Transactions" },
-          { name: "Bupa", link: "https://provider.bupa.com.sa/Provider/Default.aspx?val=dTVQbCQvZwMSeBbSkMmmYA==" },
-          { name: "Web Share", link: "https://egcaisp01.emea.tpg.ads:4545/sites/AlNahdi/Lists/ERx Referral Cases/AllItems.aspx?RootFolder=/sites/AlNahdi/Lists/ERx Referral Cases" },
           { name: "Council Of Health Insurance", link: "https://www.chi.gov.sa/servicesdirectory/pages/eservices-checkinsurance.aspx?servicename=checkinsurance" },
+          { name: "ERX-Hub", link: "https://docs.google.com/spreadsheets/d/1OyKkgS0Gmki7bYrnG4QOeklzK1mbeK0xJIq2koFV6pE/edit?gid=0#gid=0" },
+          { name: "ERX", link: "https://rtlapps.nahdi.sa/erxhub_new/" },
+          { name: "Nphies", link: "https://rtlapps.nahdi.sa/nphies_portal/Transactions" },
+          { name: "Bupa", link: "https://provider.bupa.com.sa/Provider/Default.aspx?val=dTVQbCQvZwMSeBbSkMmmYA==", username: "NMC_GCC2", password: "NMC_GCC2" },
+          { name: "Bupa Gmail", link: "https://mail.google.com/mail/u/1/#inbox", username: "nahdigcc99@gmail.com", password: "TPplaza@8000" },
+          { name: "Web Share", link: "https://egcaisp01.emea.tpg.ads:4545/sites/AlNahdi/Lists/ERx Referral Cases/AllItems.aspx?RootFolder=/sites/AlNahdi/Lists/ERx Referral Cases" },
+          { name: "Wasfaty", link: "https://wasfaty.nahdi.sa/" },
           { name: "Adherence", link: "https://rtlapps.nahdi.sa/Adherence/Home" }
         ]
       },
       {
         title: "Packages",
         buttons: [
-          { name: "Clinices CRM", link: "https://healthp.nahdi.sa/healthplug/" },
-          { name: "Nahdi Clinics", link: "http://prjed-posapps01.nmc.com/epres_UAT25102020/login.asp" },
-          { name: "Wellness Card", link: "https://rtlapps.nahdi.sa/WellnessCardsPortal/" }
+          { name: "Clinices CRM", link: "https://healthp.nahdi.sa/healthplug/", username: "CRMUser", password: "CRMPass" },
+          { name: "Nahdi Clinics", link: "http://prjed-posapps01.nmc.com/epres_UAT25102020/login.asp", username: "NahdiUser", password: "NahdiPass" },
+          { name: "Wellness Card Portal", link: "https://rtlapps.nahdi.sa/WellnessCardsPortal/" },
+          { name: "Wellness Card Nahdi Online", link: "https://www.nahdionline.com/en-sa/plp/Wellness-packages" },
+          { name: "Wellness Card Follow-Up", link: "https://docs.google.com/forms/d/e/1FAIpQLSdBo8SuM-Smkjd2TChCIkGFXe-baUnl4VxgK-kcjFR6ufskBQ/viewform?usp=dialog" }
         ]
       },
       {
@@ -218,8 +336,71 @@
           { name: "SMSA Webshare", link: "https://egcaisp01.emea.tpg.ads:4545/sites/AlNahdi/Lists/Global Delayed Orders/overview.aspx" },
           { name: "Sakhaa webshare", link: "https://egcaisp01.emea.tpg.ads:4545/sites/AlNahdi/Lists/Sakhaa Delayed Orders/overview.aspx" }
         ]
+      },
+      // كارد Order Cancellation الجديدة
+      {
+        title: "Order Cancellation",
+        buttons: [
+          { name: "Log Fire", link: "https://b6.wms.ocs.oraclecloud.com/nahdi/index/", username: "GC", password: "Ga30012025" },
+          { name: "Web Tracker", link: "https://rtlapps.nahdi.sa/WebOTS/" },
+          { name: "Far Eye", link: "https://www.fareye.co/v2/login", username: "nmc_gcc_nmc", password: "Nahdi@2060" }
+        ]
       }
     ];
+function createButtonWithIcon(btnData) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'button-wrapper';
+
+  const btnEl = document.createElement('button');
+  btnEl.textContent = btnData.name;
+  btnEl.addEventListener('click', () => window.open(btnData.link, '_blank'));
+  wrapper.appendChild(btnEl);
+
+  if (btnData.username && btnData.password) {
+    const icon = document.createElement('span');
+    icon.className = 'info-icon';
+    icon.innerHTML = '👤🔒';
+
+    const popup = document.createElement('div');
+    popup.className = 'popup-card';
+    popup.innerHTML = `
+      <div>Username:<br>${btnData.username}</div>
+      <div style="margin-top:6px;">Password:<br>${btnData.password}</div>
+    `;
+
+    wrapper.appendChild(popup);
+    wrapper.appendChild(icon);
+
+    icon.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      // إغلاق أي Popup مفتوحة
+      document.querySelectorAll('.popup-card').forEach(p => {
+        if (p !== popup) p.style.display = 'none';
+      });
+
+      const isVisible = popup.style.display === 'block';
+      popup.style.display = isVisible ? 'none' : 'block';
+
+      // تموضع احترافي فوق الأيقونة
+      const iconRect = icon.getBoundingClientRect();
+      const wrapperRect = wrapper.getBoundingClientRect();
+
+      popup.style.left = icon.offsetLeft - 10 + 'px';
+      popup.style.top = icon.offsetTop - popup.offsetHeight - 12 + 'px';
+    });
+
+    // الإغلاق عند الضغط خارجها فقط
+    document.addEventListener('click', (e) => {
+      if (!popup.contains(e.target) && e.target !== icon) {
+        popup.style.display = 'none';
+      }
+    });
+  }
+
+  return wrapper;
+}
+
 
     cardsData.forEach(card => {
       const cardEl = document.createElement('div');
@@ -230,16 +411,13 @@
       cardEl.appendChild(titleEl);
 
       card.buttons.forEach(btn => {
-        const btnEl = document.createElement('button');
-        btnEl.textContent = btn.name;
-        btnEl.addEventListener('click', () => {
-          window.open(btn.link, '_blank');
-        });
-        cardEl.appendChild(btnEl);
+        const btnWrapper = createButtonWithIcon(btn);
+        cardEl.appendChild(btnWrapper);
       });
 
       cardGrid.appendChild(cardEl);
     });
+
   </script>
 
 </body>

@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GCC Tools - Page 8</title>
+  <title>GCC Tools - Others</title>
   <link rel="stylesheet" href="../style.css">
+
   <style>
     body {
       margin: 0;
@@ -13,6 +14,7 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      background-color: #f5f9f7;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
     }
@@ -34,13 +36,6 @@
       font-weight: bold;
       background: linear-gradient(45deg, #d32769, #2184b9);
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-
-    header .back-button:hover {
-      background: linear-gradient(45deg, #ef5576, #0d3c6d);
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     header .logo {
@@ -51,7 +46,6 @@
 
     header .logo img {
       height: 50px;
-      width: auto;
     }
 
     header .logo h1 {
@@ -63,137 +57,242 @@
       flex: 1;
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 40px;
+      padding: 40px 20px;
     }
 
+    /* ✅ صفين × عمودين */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(300px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
       gap: 30px;
-      justify-items: center;
       width: 100%;
-      max-width: 800px;
+      max-width: 1200px;
+      justify-items: center;
     }
 
     .card {
       background-color: #e8f3ee;
       border-radius: 30px;
-      padding: 30px;
+      padding: 40px 30px;
       text-align: center;
       width: 100%;
-      max-width: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 150px;
+      max-width: 350px;
+      min-height: 250px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s;
     }
 
     .card:hover {
       transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
     }
 
     .card h2 {
       color: #0e4d4d;
+      font-size: 22px;
       margin-bottom: 20px;
-      font-size: 20px;
     }
 
-    .card button {
-      padding: 12px 25px;
-      font-size: 16px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
+    .button-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      position: relative; /* مهم للبوب أب */
+    }
+
+   .card button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #d32769, #2184b9);
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+    .info-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: linear-gradient(45deg, #d32769, #2184b9);
       color: white;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      margin-top: 10px;
+      cursor: pointer;
+      font-size: 16px;
     }
+.popup-card {
+  position: absolute;
+  background-color: #ffffff;
+  padding: 14px 16px;              /* مسافة أفضل */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  display: none;
+  z-index: 2000;
+  width: 300px;
+  max-height: 220px;               /* ⭐ الحل الأساسي */
+  overflow-y: auto;                /* ⭐ Scroll احترافي */
+  text-align: left;
+  font-weight: 600;
+  color: #0e4d4d;
+  font-size: 13px;                 /* أوضح شوية */
+  line-height: 1.7;                /* راحة للعين */
+}
 
-    .card button:hover {
-      background: linear-gradient(45deg, #ef5576, #0d3c6d);
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
+/* تحسين شكل كل حساب */
+.popup-card > div {
+  padding: 8px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.popup-card > div:last-child {
+  border-bottom: none;
+}
 
     footer {
       text-align: center;
       padding: 20px;
       background-color: #ffffff;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
-    }
-
-    footer p {
-      margin: 5px 0;
-      color: #333;
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <button class="back-button" onclick="goBack()">&#8592;</button>
-    <div class="logo">
-      <img src="../assets/logo.png" alt="Logo">
-      <h1>Information</h1>
-    </div>
-  </header>
-
+<header>
+  <button class="back-button" onclick="goBack()">&#8592;</button>
+  <div class="logo">
+    <img src="../assets/logo.png" alt="Logo">
+    <h1>Others</h1>
+  </div>
+</header>
   <div class="background"></div>
 
-  <div class="content">
-    <div class="card-grid" id="cardGrid"></div>
-  </div>
+<div class="content">
+  <div class="card-grid" id="cardGrid"></div>
+</div>
 
-  <footer>
-    <p>Designed Mohammed ma'mon</p>
-  </footer>
+<footer>
+  <p>Designed By Mohammed ma'mon</p>
+</footer>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      document.body.style.opacity = 1;
-    });
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.body.style.opacity = 1;
+  });
 
-    function goBack() {
-      document.body.style.opacity = 0;
-      setTimeout(() => {
-        window.location.href = "../home.html";
-      }, 500);
+  function goBack() {
+    document.body.style.opacity = 0;
+    setTimeout(() => {
+      window.location.href = "../home.html";
+    }, 500);
+  }
+
+  const cardsData = [
+    {
+      title: "Change Guest Mobile No.",
+      buttons: [{
+        name: "Open",
+        link: "https://accounts.nahdionline.com/login",
+        username: "alaanaderattia@gmail.com",
+        password: "Welcome@1134"
+      }]
+    },
+    {
+      title: "Sinocare",
+      buttons: [{
+        name: "Open",
+        link: "https://sg.icancgm.com/service/login?redirect=https://sg.icancgm.com/service/device/list",
+        username: "Gebril.as@nahdi.sa",
+        password: "Abc123456"
+      }]
+    },
+    {
+      title: "Dose Calculator (Para..&Ipu..)",
+      buttons: [{
+        name: "Open",
+        link: "https://www.ellersliemedical.co.nz/calculators/"
+      }]
+    },
+    {
+      title: "Screenshot",
+      buttons: [{
+        name: "Open",
+        link: "https://pinetools.com/print-screen"
+      }]
+    }
+  ];
+
+  const cardGrid = document.getElementById('cardGrid');
+
+  function createButtonWithIcon(btnData) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'button-wrapper';
+
+    const btn = document.createElement('button');
+    btn.textContent = btnData.name;
+    btn.onclick = () => window.open(btnData.link, '_blank');
+    wrapper.appendChild(btn);
+
+    if (btnData.username && btnData.password) {
+      const icon = document.createElement('span');
+      icon.className = 'info-icon';
+      icon.textContent = '👤🔒';
+      wrapper.appendChild(icon);
+
+      const popup = document.createElement('div');
+      popup.className = 'popup-card';
+      popup.innerHTML = `
+        <p>Username: ${btnData.username}</p>
+        <p>Password: ${btnData.password}</p>
+      `;
+      wrapper.appendChild(popup);
+
+     icon.addEventListener('click', (e) => {
+  e.stopPropagation();
+
+  const isVisible = popup.style.display === 'block';
+
+  document.querySelectorAll('.popup-card').forEach(p => {
+    p.style.display = 'none';
+  });
+
+  popup.style.display = isVisible ? 'none' : 'block';
+
+  popup.style.top = icon.offsetTop - popup.offsetHeight - 12 + 'px';
+  popup.style.left = icon.offsetLeft - 120 + 'px';
+});
+
     }
 
-    const cardGrid = document.getElementById('cardGrid');
+    return wrapper;
+  }
 
-    const cardsData = [
-      { title: "Updated Data", buttons: [{ name: "Open", link: "https://docs.google.com/spreadsheets/d/164zPmWPSETz8YxmIBlvfQ0WuGUKeiIIFIA0mCHVzHdc/edit?gid=836317476" }] },
-      { title: "SharePoint", buttons: [{ name: "Open", link: "https://teleperformance.sharepoint.com/sites/Al-NahdiSharePoint594/Shared Documents/Forms/AllItems.aspx" }] },
-      { title: "Knowledge Base", buttons: [{ name: "Open", link: "https://egportal01.emea.tpg.ads/AlNahdi/dashboard" }] },
-      { title: "Academy", buttons: [{ name: "Open", link: "https://nahdiacademy.nahdi.sa/user_dashboard" }] }
-    ];
+  cardsData.forEach(card => {
+    const cardEl = document.createElement('div');
+    cardEl.className = 'card';
 
-    cardsData.forEach(card => {
-      const cardEl = document.createElement('div');
-      cardEl.className = 'card';
+    const title = document.createElement('h2');
+    title.textContent = card.title;
+    cardEl.appendChild(title);
 
-      const titleEl = document.createElement('h2');
-      titleEl.textContent = card.title;
-      cardEl.appendChild(titleEl);
-
-      card.buttons.forEach(btn => {
-        const btnEl = document.createElement('button');
-        btnEl.textContent = btn.name;
-        btnEl.addEventListener('click', () => window.open(btn.link, '_blank'));
-        cardEl.appendChild(btnEl);
-      });
-
-      cardGrid.appendChild(cardEl);
+    card.buttons.forEach(btn => {
+      cardEl.appendChild(createButtonWithIcon(btn));
     });
-  </script>
+
+    cardGrid.appendChild(cardEl);
+  });
+</script>
 
 </body>
 </html>

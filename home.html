@@ -18,35 +18,32 @@
       min-height: 100vh;
       flex-direction: column;
     }
-
+    
     header {
       padding: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 15px;
-      position: fixed;
+      position: fixed; 
       width: 100%;
       top: 0;
       left: 0;
       background-color: white;
       z-index: 10;
     }
-
     header img {
       height: 50px;
     }
-
     header h1 {
       flex-grow: 1;
       margin: 0;
     }
-
     header button {
       padding: 10px 18px;
       height: 50px;
       font-size: 16px;
-      font-weight: 600;
+      font-weight:600;
       border: none;
       border-radius: 30px;
       background: linear-gradient(45deg, #c92929, #056565);
@@ -54,11 +51,9 @@
       cursor: pointer;
       transition: transform 0.2s;
     }
-
     header button:hover {
       transform: scale(1.05);
     }
-
     .background {
       position: fixed;
       top: 0;
@@ -68,16 +63,16 @@
       background-color: #cde3d9;
       z-index: -1;
     }
-
-    .content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      padding-top: 120px;
-      flex-grow: 1;
-    }
+   .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px; /* نفس المسافة الأفقية */
+  row-gap: 3px;    /* مسافة أصغر بين الصفوف */
+  padding-top: 120px;
+  flex-grow: 1;
+}
 
     .card {
       position: relative;
@@ -95,26 +90,24 @@
       background-position: center;
       transition: transform 0.3s, filter 0.3s;
     }
-
     .card:hover {
       transform: scale(1.08);
       filter: brightness(1.1);
     }
-
     .card span {
       position: absolute;
       font-weight: 900;
       font-size: 22px;
+      text-align: center;
       background: linear-gradient(45deg, #033d3d, #7a1a1a);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
+      background-clip: text;          
+      -webkit-background-clip: text;  
+      color: transparent; 
       z-index: 1;
       padding: 5px 10px;
     }
-
     footer {
-      width: 100%;
+      width: 100%; 
       padding: 20px;
       text-align: center;
       background-color: white;
@@ -122,6 +115,8 @@
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       box-sizing: border-box;
+      position: relative;
+      left: 0;
     }
   </style>
 </head>
@@ -134,76 +129,83 @@
     <button id="logoutBtn">Logout</button>
   </header>
 
+  <!-- Background -->
   <div class="background"></div>
 
+  <!-- Content -->
   <div class="content" id="cardGrid"></div>
 
   <!-- Footer -->
-  <footer>
-    <div style="display:flex;justify-content:center;align-items:center;gap:10px;">
-      <img src="./assets/logo2.png" alt="Logo" style="width:30px;">
-      <span style="font-weight:600;">Designed by Mohammed Ma'mon</span>
+  <footer style="background-color: #f8f8f8; padding: 20px 0; text-align: center; border-top-left-radius: 20px; border-top-right-radius: 20px;">
+    <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 8px;">
+      <img src="./assets/logo2.png" alt="Logo" style="width: 30px; height: auto;">
+      <span style="font-weight: 600; font-family: Arial, sans-serif;">Designed by Mohammed Ma'mon</span>
     </div>
+   
   </footer>
 
   <script>
-    // Login check
-    window.onload = function () {
+    // Check login
+    window.onload = function() {
       const savedLogin = localStorage.getItem("autoLogin");
       if (savedLogin !== "true") {
         window.location.href = "index.html";
       }
     };
 
-    // Logout
-    document.getElementById("logoutBtn").addEventListener("click", () => {
+    // Logout button
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", () => {
       localStorage.removeItem("autoLogin");
       window.location.href = "index.html";
     });
 
-    // Cards data
-    const cardGrid = document.getElementById("cardGrid");
-
+    // Generate cards
+    const cardGrid = document.getElementById('cardGrid');
     const cardData = [
-      { title: "Receive calls", link: "https://login.mypurecloud.ie/?rid=R89JQOTfHKVZrHJpXyA2n488vZDwSc06EzpCb2rtKIY#/authenticate" },
-      { title: "Portal", link: "https://rtlapps.nahdi.sa/Guest_Profile/" },
+      { title: "Receive calls", link: "./pages/page1.html" },
       { title: "Documentation", link: "./pages/page2.html" },
       { title: "Orders", link: "./pages/page3.html" },
-      { title: "Order Cancellation", link: "./pages/page4.html" },
-      { title: "Payment & Refund", link: "./pages/page5.html" },
-      { title: "Tools", link: "./pages/page7.html" },
-      { title: "Information", link: "./pages/page8.html" }
+      { title: "Payment & Refund", link: "./pages/page4.html" },
+      { title: "Portal", link: "https://rtlapps.nahdi.sa/Guest_Profile/" },
+      { title: "Branches", link: "./pages/page5.html" },
+      { title: "Information", link: "./pages/page6.html" },
+      { title: "Item Search", link: "./pages/page7.html" },
+      { title: "Others", link: "./pages/page8.html" },
+      { title: "Communication", link: "./pages/page9.html" },
+
+
     ];
 
     cardData.forEach(card => {
-      const cardEl = document.createElement("div");
-      cardEl.className = "card";
-
-      cardEl.addEventListener("click", () => {
-        // Animation
-        cardEl.style.transition = "transform 0.5s ease, opacity 0.5s ease";
-        cardEl.style.transform = "scale(2)";
-        cardEl.style.opacity = "0";
-
+      const cardEl = document.createElement('div');
+      cardEl.className = 'card';
+      cardEl.addEventListener('click', () => {
+        // Animate card before navigation
+        cardEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+        cardEl.style.transform = 'scale(2)';
+        cardEl.style.opacity = '0';
         Array.from(cardGrid.children).forEach(c => {
-          if (c !== cardEl) {
-            c.style.transition = "opacity 0.5s ease";
-            c.style.opacity = "0";
+          if(c !== cardEl){
+            c.style.transition = 'opacity 0.5s ease';
+            c.style.opacity = '0';
           }
         });
-
         setTimeout(() => {
-          window.open(card.link, "_blank", "noopener,noreferrer");
-          window.location.reload(); // يرجع الصفحة لطبيعتها
+          window.location.href = card.link;
         }, 500);
       });
 
-      const titleEl = document.createElement("span");
+      const titleEl = document.createElement('span');
       titleEl.textContent = card.title;
-
       cardEl.appendChild(titleEl);
       cardGrid.appendChild(cardEl);
     });
+      window.addEventListener('pageshow', function(event) {
+    if (event.persisted || performance.getEntriesByType("navigation")[0].type === 'back_forward') {
+      window.location.reload();
+    }
+  });
   </script>
 
 </body>

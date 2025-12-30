@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nahdi Customer Service - Full Combined Templates</title>
+    <style>
+        :root {
+            --border-thick: 2px solid #000;
+            --border-thin: 1px solid #000;
+            --pink-accent: #d13d7c;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .main-container { width: 100%; max-width: 1250px; margin: 0 auto; border: var(--border-thick); background: #fff; display: flex; flex-direction: column; }
+        
+        .section-block { display: flex; border-bottom: var(--border-thick); }
+        .section-block:last-child { border-bottom: none; }
+
+        /* العنوان الجانبي الرئيسي للأقسام */
+        .main-side-label {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            padding: 15px;
+            min-width: 80px;
+            text-align: center;
+            border-left: var(--border-thick);
+        }
+
+        /* ألوان الخلفيات الجانبية كما في الصور */
+        .bg-products { background-color: #98c68b; color: var(--pink-accent); }
+        .bg-payment { background-color: #4fb2c0; color: var(--pink-accent); }
+        .bg-global { background-color: #eeb2c5; color: #ff0000; }
+        .bg-loyality { background-color: #123338; color: #98c68b; }
+        .bg-services { background-color: #ffcc33; color: #d32f2f; }
+        .bg-guest { background-color: #633300; color: #fff; }
+        .bg-others { background-color: #b19cd9; color: #fff; } /* لون قسم Others من الصورة 3 */
+        .bg-tickets { background-color: #f2dede; color: #a94442; } /* لون قسم Tickets من الصورة 3 */
+
+        .rows-area { flex-grow: 1; }
+        .data-row { display: grid; grid-template-columns: 220px 1fr; border-bottom: var(--border-thin); min-height: 80px; }
+        .data-row:last-child { border-bottom: none; }
+
+        .label-cell { display: flex; align-items: center; justify-content: center; padding: 10px; text-align: center; font-weight: bold; border-left: var(--border-thin); background: #fff; font-size: 14px; }
+
+        /* منطقة المحتوى النصي (عربي - إنجليزي) */
+        .content-cell { display: grid; grid-template-columns: 1fr 220px; }
+        .ar-box { padding: 12px; text-align: right; font-size: 13px; border-left: 1px dashed #ccc; line-height: 1.6; }
+        .en-box { padding: 12px; text-align: left; font-size: 11px; color: #555; direction: ltr; }
+
+        /* التنسيق المتشعب لقسم Guest Related */
+        .split-sub-section { display: grid; grid-template-columns: 60px 1fr; border-bottom: var(--border-thin); }
+        .split-sub-section:last-child { border-bottom: none; }
+        .sub-vertical-label { writing-mode: vertical-rl; transform: rotate(180deg); display: flex; align-items: center; justify-content: center; font-weight: bold; border-left: var(--border-thin); padding: 5px; }
+        
+        .link { color: #0000FF; text-decoration: underline; word-break: break-all; }
+    
+    .back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px; 
+  font-size: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(45deg, #d32769, #2184b9);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  z-index: 9999;
+}
+
+.back-button:hover {
+  background: linear-gradient(45deg, #ef5576, #0d3c6d);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+<script>
+  function goToPage2() {
+    window.location.href = "../home.html"; 
+  }
+</script>
+<body>
+ <button class="back-button" onclick="goToPage2()">
+  ← 
+</button> <div class="dashboard-container"><button class="back-button" onclick="goToPage2()">
+  ← 
+</button>
+<div class="main-container">
+    
+    <div class="section-block">
+        <div class="main-side-label bg-products">Products</div>
+        <div class="rows-area">
+            <div class="data-row"><div class="label-cell">bb / Mounjaro / Oral-B</div><div class="content-cell"><div class="ar-box">تواصل مع خدمة العملاء (أرقام التواصل بالإيميل والواتساب الموضحة بالصورة)</div><div class="en-box">Dear guest, contact brand support</div></div></div>
+            <div class="data-row"><div class="label-cell">FreeStyle / Syai / Dexcom</div><div class="content-cell"><div class="ar-box">تواصل مع خدمة عملاء أجهزة السكر (أرقام المتابعة الموضحة بالصورة)</div><div class="en-box">Dear guest, contact glucose support</div></div></div>
+            <div class="data-row"><div class="label-cell">Sinocare</div><div class="content-cell"><div class="ar-box">يسعدنا استبدال المحسن الخاص بك. رقم الطلب الجديد: xxxx</div><div class="en-box">We are replacing your device.</div></div></div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <div class="main-side-label bg-payment">Payment & Refund</div>
+        <div class="rows-area">
+            <div class="data-row"><div class="label-cell">رابط دفع / الرقم المرجعي</div><div class="content-cell"><div class="ar-box">إتمام الدفع أونلاين أو تزويدكم بالرقم المرجعي للاسترجاع.</div><div class="en-box">Payment link or Refund Ref ID.</div></div></div>
+            <div class="data-row"><div class="label-cell">Refund Request</div><div class="content-cell"><div class="ar-box">تواصل مع Refund@nahdi.sa مع تزويدنا (الجوال، الإيصال، كشف الحساب).</div><div class="en-box">Email us for refund requests.</div></div></div>
+            <div class="data-row"><div class="label-cell">سياسة الارجاع والاستبدال</div><div class="content-cell"><div class="ar-box">رابط السياسة: <a href="https://cutt.ly/rw5tUFO" class="link">https://cutt.ly/rw5tUFO</a></div><div class="en-box">Please check the policy link.</div></div></div>
+            <div class="data-row"><div class="label-cell">Failed Refund Request</div><div class="content-cell"><div class="ar-box">تزويدنا بالبيانات: الاسم، رقم الطلب، البنك، الآيبان.</div><div class="en-box">Failed refund: provide bank info.</div></div></div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <div class="main-side-label bg-global">Global</div>
+        <div class="rows-area">
+            <div class="data-row"><div class="label-cell">Product Quality</div><div class="content-cell"><div class="ar-box">نعتذر عن التجربة، يرجى تزويدنا ببيانات المنتج ورقم التشغيلة وصورة.</div><div class="en-box">Please provide product patch no.</div></div></div>
+            <div class="data-row"><div class="label-cell">Follow-Up Scenarios</div><div class="content-cell"><div class="ar-box">جاري العمل على حل المشكلة، الرد خلال 48 ساعة.</div><div class="en-box">Response within 48 hours.</div></div></div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <div class="main-side-label bg-loyality">Loyality</div>
+        <div class="rows-area">
+            <div class="data-row"><div class="label-cell">كود الخصم</div><div class="content-cell"><div class="ar-box">كود خصم بقيمة ## % للطلب القادم.</div><div class="en-box">Discount code for next order.</div></div></div>
+            <div class="data-row"><div class="label-cell">قسيمة شرائية</div><div class="content-cell"><div class="ar-box">قسيمة بقيمة ## ريال للاستخدام داخل الصيدليات.</div><div class="en-box">Coupon code for store use.</div></div></div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <div class="main-side-label bg-services">Nahdi Services Related</div>
+        <div class="rows-area">
+            <div class="data-row"><div class="label-cell">موقع النهدي أونلاين</div><div class="content-cell"><div class="ar-box">https://cutt.ly/hw5eXgoA</div><div class="en-box">Visit Nahdi Online website.</div></div></div>
+            <div class="data-row"><div class="label-cell">أيميل خدمة العملاء</div><div class="content-cell"><div class="ar-box">customercare@nahdi.sa</div><div class="en-box">customercare@nahdi.sa</div></div></div>
+            <div class="data-row"><div class="label-cell">العيادات</div><div class="content-cell"><div class="ar-box">تطبيقات العيادات (أندرويد وآيفون موضحة بالصورة).</div><div class="en-box">Clinic application links.</div></div></div>
+            <div class="data-row"><div class="label-cell">استشارة مجانية مع طبيب</div><div class="content-cell"><div class="ar-box"><a href="https://m.nahdi.sa/LX/7?journey=e-doctor" class="link">رابط الطبيب أونلاين</a></div><div class="en-box">Free consultation link.</div></div></div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <div class="main-side-label bg-guest">Guest Related</div>
+        <div class="rows-area">
+            <div class="split-sub-section">
+                <div class="sub-vertical-label" style="background-color: #633300; color:#fff;">Store Related</div>
+                <div class="inner-rows">
+                    <div class="data-row" style="grid-template-columns: 160px 1fr;"><div class="label-cell">رقم الفاتورة / الموقع</div><div class="content-cell"><div class="ar-box">رقم الفاتورة: XXXXXX - الموقع: ########</div><div class="en-box">Invoice and store location info.</div></div></div>
+                    <div class="data-row" style="grid-template-columns: 160px 1fr;"><div class="label-cell">رقم شكوى</div><div class="content-cell"><div class="ar-box">نأسف للتجربة، رقم طلبك: XXXXXX</div><div class="en-box">Complaint No: XXXXXX</div></div></div>
+                </div>
+            </div>
+            <div class="split-sub-section">
+                <div class="sub-vertical-label" style="background-color: #93811f; color:#fff;">GCC Related</div>
+                <div class="inner-rows">
+                    <div class="data-row" style="grid-template-columns: 160px 1fr;"><div class="label-cell">رابط المنتج / فيديو</div><div class="content-cell"><div class="ar-box">رابط المنتج: XXXXXX - رابط مكالمة الفيديو: XXXXXX</div><div class="en-box">Product link & Video call.</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <div class="main-side-label bg-others">Others</div>
+        <div class="rows-area">
+            <div class="data-row"><div class="label-cell">التوظيف</div><div class="content-cell"><div class="ar-part ar-box">الرجاء التقديم عبر رابط بوابة التوظيف الموضح بالصورة.</div><div class="en-part en-box">Apply via Nahdi Career portal.</div></div></div>
+            <div class="data-row"><div class="label-cell">المسؤولية الاجتماعية</div><div class="content-cell"><div class="ar-part ar-box">يرجى التواصل معنا على الإيميل: CSR@nahdi.sa</div><div class="en-part en-box">Email: CSR@nahdi.sa</div></div></div>
+            <div class="data-row"><div class="label-cell">وزارة التجارة</div><div class="content-cell"><div class="ar-part ar-box">في حال وجود استفسارات بخصوص شكاوى الوزارة، يرجى التواصل على الرقم الموحد.</div><div class="en-part en-box">MCI complaints unified number.</div></div></div>
+            <div class="data-row"><div class="label-cell">المستثمرين</div><div class="content-cell"><div class="ar-part ar-box">يرجى زيارة موقع علاقات المستثمرين الموضح بالصورة.</div><div class="en-part en-box">Visit Investors Relations site.</div></div></div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <div class="main-side-label bg-tickets">Tickets Team</div>
+        <div class="rows-area">
+            <div class="data-row"><div class="label-cell">Not Reached</div><div class="content-cell"><div class="ar-part ar-box">حاول فريق العناية التواصل معكم بخصوص طلبكم ولكن لم يتم الرد.</div><div class="en-part en-box">We tried to contact you but no response.</div></div></div>
+            <div class="data-row"><div class="label-cell">Controlled medication</div><div class="content-cell"><div class="ar-part ar-box">بخصوص طلبكم للأدوية الخاضعة للرقابة رقم ... يرجى التواصل معنا.</div><div class="en-part en-box">Regarding your controlled meds request.</div></div></div>
+            <div class="data-row"><div class="label-cell">Stock not available (SOH=0)</div><div class="content-cell"><div class="ar-part ar-box">نعتذر لعدم توفر المنتج حالياً، تم إلغاء الطلب لعدم التوفر.</div><div class="en-part en-box">Item out of stock, order cancelled.</div></div></div>
+            <div class="data-row"><div class="label-cell">Prescription related</div><div class="content-cell"><div class="ar-part ar-box">الطلب ملغي لعدم وجود وصفة طبية صحيحة/تشخيص.</div><div class="en-part en-box">Order cancelled: No valid prescription.</div></div></div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

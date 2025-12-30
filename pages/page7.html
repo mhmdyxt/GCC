@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GCC Tools - Page 7</title>
+  <title>GCC Tools - Item Search</title>
   <link rel="stylesheet" href="../style.css">
   <style>
     body {
@@ -13,6 +13,7 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      background-color: #f5f9f7;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
     }
@@ -67,14 +68,16 @@
       padding: 40px;
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      justify-items: center;
-      width: 100%;
-      max-width: 1200px;
-    }
+   .card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
+  grid-template-rows: repeat(2, auto);  /* صفين */
+  gap: 30px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
 
     .card {
       background-color: #e8f3ee;
@@ -101,20 +104,22 @@
       margin-bottom: 20px;
       font-size: 20px;
     }
-
-    .card button {
-      padding: 12px 25px;
-      font-size: 16px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      background: linear-gradient(45deg, #d32769, #2184b9);
-      color: white;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      margin-top: 10px;
-    }
+.card button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #d32769, #2184b9);
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
     .card button:hover {
       background: linear-gradient(45deg, #ef5576, #0d3c6d);
@@ -141,10 +146,9 @@
     <button class="back-button" onclick="goBack()">&#8592;</button>
     <div class="logo">
       <img src="../assets/logo.png" alt="Logo">
-      <h1>Tools</h1>
+      <h1>Item Search</h1>
     </div>
   </header>
-
   <div class="background"></div>
 
   <div class="content">
@@ -170,12 +174,11 @@
     const cardGrid = document.getElementById('cardGrid');
 
     const cardsData = [
-      { title: "Change Guest Mobile No.", buttons: [{ name: "Open", link: "https://accounts.nahdionline.com/login" }] },
-      { title: "Transaction", buttons: [{ name: "Open", link: "http://rmsbip.nmc.com:9704/xmlpserver/Guest/backup/Duplicate_Sales_Receipt/Duplicate_Sales_Receipt.xdo" }] },
-      { title: "Sinocare", buttons: [{ name: "Open", link: "https://sg.icancgm.com/service/login?redirect=https://sg.icancgm.com/service/device/list" }] },
-      { title: "Mail", buttons: [{ name: "Open", link: "https://webmail.emea.teleperformance.com/roundcube/?_task=mail&_mbox=INBOX" }] },
-      { title: "Index for Branches", buttons: [{ name: "Open", link:"https://docs.google.com/spreadsheets/d/1Iy1jh5Jn5GxzVA01znXCTwvTDpMNCLtgArw3CcYAwg4/edit?gid=649908881" }] },
-      { title: "Online Screenshots", buttons: [{ name: "Open", link: "https://pinetools.com/print-screen" }] }
+      { title: "ERX", buttons: [{ name: "Open", link: "https://rtlapps.nahdi.sa/idf/itemsCatalogue?channelGcc=TWFudWFscw%3d%3d&amp;userType=R0ND&amp;userId=YWJvYm9yZGEubWdAbmFoZGkuc2E%3d&amp;username=YWJvYm9yZGEubWdAbmFoZGkuc2E%3d%20SOH%09https://rtlapps.nahdi.sa/Guest_Profile/Home/SOHReport%20Sell%20Screen%20(%20IDF%20)%09https://rtlapps.nahdi.sa/IDF/itemsCatalogue%20Daleel%09https://rtlapps.nahdi.sa/ItemDashboard/%20Alt%20(%20IDF%20&%20SOH%20)%09https://rtlapps.nahdi.sa/idf%20%09%20BASE%09https://egportal01.emea.tpg.ads/AlNahdi/dashboard" }] },
+      { title: "SOH", buttons: [{ name: "Open", link: "https://rtlapps.nahdi.sa/Guest_Profile/Home/SOHReport" }] },
+      { title: "Sell Screen", buttons: [{ name: "Open", link: "https://rtlapps.nahdi.sa/IDF/itemsCatalogue" }] },
+      { title: "Daleel", buttons: [{ name: "Open", link: "https://rtlapps.nahdi.sa/ItemDashboard/" }] },
+      { title: "Alternative", buttons: [{ name: "Open", link: "https://rtlapps.nahdi.sa/idf" }] }
     ];
 
     cardsData.forEach(card => {
